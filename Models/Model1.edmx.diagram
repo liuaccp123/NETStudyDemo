@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e6026c9704c44930985ad2d8c2b05dc8" Name="关系图1">
+        <EntityTypeShape EntityType="CLKB_DBModel.KBFileTable" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CLKB_DBModel.KBNRTable" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CLKB_DBModel.FK_KBNRTable_KBFileTable" />
+        <EntityTypeShape EntityType="CLKB_DBModel.KBFileTabel_zy" Width="1.625" PointX="4.75" PointY="0.875" />
+        <EntityTypeShape EntityType="CLKB_DBModel.KBNRTable_ALL" Width="2.5" PointX="6.5" PointY="1" />
+        <EntityTypeShape EntityType="CLKB_DBModel.AdminInfo" Width="1.5" PointX="10.080064537972241" PointY="15.869431905387636" />
+        <EntityTypeShape EntityType="CLKB_DBModel.EmpInfo" Width="1.5" PointX="8.7800696104672138" PointY="29.850969000650089" />
+        <EntityTypeShape EntityType="CLKB_DBModel.NewsInfo" Width="1.5" PointX="7.6996973714324159" PointY="7.63346603868225" />
+        <EntityTypeShape EntityType="CLKB_DBModel.ProjectInfo" Width="1.5" PointX="1.4104982006412457" PointY="27.34808608672958" />
+        <EntityTypeShape EntityType="CLKB_DBModel.TabClassInfo" Width="1.5" PointX="4.228771936254935" PointY="27.424032566800729" />
+        <EntityTypeShape EntityType="CLKB_DBModel.TabQuest" Width="1.5" PointX="7.3300603699544729" PointY="5.9907268015624613" />
+        <EntityTypeShape EntityType="CLKB_DBModel.TabStudentInfo" Width="1.5" PointX="2.8217438770559355" PointY="14.404853127153988" />
+        <EntityTypeShape EntityType="CLKB_DBModel.WXIdToStudentName" Width="1.5" PointX="5.1692167116185725" PointY="18.462465220346331" />
+        <EntityTypeShape EntityType="CLKB_DBModel.WeChatUsers" Width="1.5" PointX="2.3840345900431439" PointY="30.509850516221416" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

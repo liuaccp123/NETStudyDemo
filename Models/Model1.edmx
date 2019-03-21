@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CLKB_DBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CLKB_DBModelStoreContainer">
+          <EntitySet Name="AdminInfo" EntityType="CLKB_DBModel.Store.AdminInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmpInfo" EntityType="CLKB_DBModel.Store.EmpInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KBFileTabel_zy" EntityType="CLKB_DBModel.Store.KBFileTabel_zy" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KBFileTable" EntityType="CLKB_DBModel.Store.KBFileTable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KBNRTable" EntityType="CLKB_DBModel.Store.KBNRTable" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KBNRTable_ALL" EntityType="CLKB_DBModel.Store.KBNRTable_ALL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NewsInfo" EntityType="CLKB_DBModel.Store.NewsInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProjectInfo" EntityType="CLKB_DBModel.Store.ProjectInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TabClassInfo" EntityType="CLKB_DBModel.Store.TabClassInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TabQuest" EntityType="CLKB_DBModel.Store.TabQuest" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TabStudentInfo" EntityType="CLKB_DBModel.Store.TabStudentInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WeChatUsers" EntityType="CLKB_DBModel.Store.WeChatUsers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WXIdToStudentName" EntityType="CLKB_DBModel.Store.WXIdToStudentName" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_KBNRTable_KBFileTable" Association="CLKB_DBModel.Store.FK_KBNRTable_KBFileTable">
+            <End Role="KBFileTable" EntitySet="KBFileTable" />
+            <End Role="KBNRTable" EntitySet="KBNRTable" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdminInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="AdminName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="AdminPwd" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmpInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpJX" Type="nvarchar" MaxLength="500" />
+          <Property Name="EmpDep" Type="nchar" MaxLength="10" />
+          <Property Name="EmpImagePath" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KBFileTabel_zy">
+          <Key>
+            <PropertyRef Name="Guid_Kb" />
+          </Key>
+          <Property Name="Guid_Kb" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="KB_RQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_XQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_ZYM" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_NR" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_JYM" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_SKBJ" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_SJD" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_SJFW" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_ZYLX" Type="nvarchar" MaxLength="50" />
+          <Property Name="Guid_KBID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KBFileTable">
+          <Key>
+            <PropertyRef Name="Guid_kbfile" />
+          </Key>
+          <Property Name="Guid_kbfile" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FilePath" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="EndTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="KMName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BZ" Type="nvarchar" MaxLength="500" />
+          <Property Name="ISCD" Type="bit" />
+          <Property Name="IsCY" Type="bit" />
+        </EntityType>
+        <EntityType Name="KBNRTable">
+          <Key>
+            <PropertyRef Name="Guid_Kb" />
+          </Key>
+          <Property Name="Guid_Kb" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="KB_RQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_XQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_ZYM" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_NR" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_JYM" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_SKBJ" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_SJD" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_SJFW" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_ZYLX" Type="nvarchar" MaxLength="50" />
+          <Property Name="Guid_KBID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KBNRTable_ALL">
+          <Key>
+            <PropertyRef Name="Guid_Kb" />
+          </Key>
+          <Property Name="Guid_Kb" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="KB_RQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_XQ" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_ZYM" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_NR" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_JYM" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_SKBJ" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_SJD" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_SJFW" Type="nvarchar" MaxLength="50" />
+          <Property Name="KB_ZYLX" Type="nvarchar" MaxLength="50" />
+          <Property Name="KSS" Type="int" />
+          <Property Name="BZ" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Guid_KBFile" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="NewsInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NewTitle" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="NewContent" Type="nvarchar" Nullable="false" />
+          <Property Name="NewAddDateTime" Type="datetime" Nullable="false" />
+          <Property Name="NewRead" Type="text" />
+        </EntityType>
+        <EntityType Name="ProjectInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="ntext" Nullable="false" />
+          <Property Name="ImagePath" Type="ntext" />
+          <Property Name="ProjectJX" Type="ntext" />
+        </EntityType>
+        <EntityType Name="TabClassInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ClassName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ClassStartTime" Type="datetime" />
+          <Property Name="ClassStopTime" Type="datetime" />
+          <Property Name="ClassTeacher" Type="varchar" MaxLength="50" />
+          <Property Name="ClassMaster" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TabQuest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Question" Type="varchar" MaxLength="500" />
+          <Property Name="Answer" Type="varchar" MaxLength="500" />
+          <Property Name="AnswerDateTime" Type="datetime" />
+          <Property Name="IsTrue" Type="varchar" MaxLength="50" />
+          <Property Name="Meno" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="TabStudentInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="StudentClassID" Type="int" Nullable="false" />
+          <Property Name="StudentSex" Type="varchar" MaxLength="50" />
+          <Property Name="StudentAddress" Type="varchar" MaxLength="50" />
+          <Property Name="StudentMeno" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="WeChatUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UnionId" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="OpenID" Type="varchar" MaxLength="500" />
+          <Property Name="NickName" Type="varchar" MaxLength="500" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Province" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="AvatarUrl" Type="varchar" MaxLength="500" />
+          <Property Name="Appid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Timestamp" Type="nvarchar" MaxLength="50" />
+          <Property Name="Memo" Type="nvarchar" MaxLength="50" />
+          <Property Name="counts" Type="int" />
+        </EntityType>
+        <EntityType Name="WXIdToStudentName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="wxid" Type="nvarchar" MaxLength="50" />
+          <Property Name="isTeacher" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StudentName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_KBNRTable_KBFileTable">
+          <End Role="KBFileTable" Type="CLKB_DBModel.Store.KBFileTable" Multiplicity="0..1" />
+          <End Role="KBNRTable" Type="CLKB_DBModel.Store.KBNRTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KBFileTable">
+              <PropertyRef Name="Guid_kbfile" />
+            </Principal>
+            <Dependent Role="KBNRTable">
+              <PropertyRef Name="Guid_KBID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CLKB_DBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CLKB_DBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="KBFileTable" EntityType="CLKB_DBModel.KBFileTable" />
+          <EntitySet Name="KBNRTable" EntityType="CLKB_DBModel.KBNRTable" />
+          <AssociationSet Name="FK_KBNRTable_KBFileTable" Association="CLKB_DBModel.FK_KBNRTable_KBFileTable">
+            <End Role="KBFileTable" EntitySet="KBFileTable" />
+            <End Role="KBNRTable" EntitySet="KBNRTable" />
+          </AssociationSet>
+          <EntitySet Name="KBFileTabel_zy" EntityType="CLKB_DBModel.KBFileTabel_zy" />
+          <EntitySet Name="KBNRTable_ALL" EntityType="CLKB_DBModel.KBNRTable_ALL" />
+          <EntitySet Name="AdminInfo" EntityType="CLKB_DBModel.AdminInfo" />
+          <EntitySet Name="EmpInfo" EntityType="CLKB_DBModel.EmpInfo" />
+          <EntitySet Name="NewsInfo" EntityType="CLKB_DBModel.NewsInfo" />
+          <EntitySet Name="ProjectInfo" EntityType="CLKB_DBModel.ProjectInfo" />
+          <EntitySet Name="TabClassInfo" EntityType="CLKB_DBModel.TabClassInfo" />
+          <EntitySet Name="TabQuest" EntityType="CLKB_DBModel.TabQuest" />
+          <EntitySet Name="TabStudentInfo" EntityType="CLKB_DBModel.TabStudentInfo" />
+          <EntitySet Name="WXIdToStudentName" EntityType="CLKB_DBModel.WXIdToStudentName" />
+          <EntitySet Name="WeChatUsers" EntityType="CLKB_DBModel.WeChatUsers" />
+        </EntityContainer>
+        <EntityType Name="KBFileTable">
+          <Key>
+            <PropertyRef Name="Guid_kbfile" />
+          </Key>
+          <Property Name="Guid_kbfile" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FilePath" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StartTime" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EndTime" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="KMName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BZ" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="ISCD" />
+          <Property Type="Boolean" Name="IsCY" />
+          <NavigationProperty Name="KBNRTable" Relationship="CLKB_DBModel.FK_KBNRTable_KBFileTable" FromRole="KBFileTable" ToRole="KBNRTable" />
+        </EntityType>
+        <EntityType Name="KBNRTable">
+          <Key>
+            <PropertyRef Name="Guid_Kb" />
+          </Key>
+          <Property Name="Guid_Kb" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KB_RQ" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KB_XQ" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KB_ZYM" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KB_NR" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KB_JYM" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KB_SKBJ" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KB_SJD" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KB_SJFW" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KB_ZYLX" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Guid_KBID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KBFileTable" Relationship="CLKB_DBModel.FK_KBNRTable_KBFileTable" FromRole="KBNRTable" ToRole="KBFileTable" />
+        </EntityType>
+        <Association Name="FK_KBNRTable_KBFileTable">
+          <End Type="CLKB_DBModel.KBFileTable" Role="KBFileTable" Multiplicity="0..1" />
+          <End Type="CLKB_DBModel.KBNRTable" Role="KBNRTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KBFileTable">
+              <PropertyRef Name="Guid_kbfile" />
+            </Principal>
+            <Dependent Role="KBNRTable">
+              <PropertyRef Name="Guid_KBID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="KBFileTabel_zy">
+          <Key>
+            <PropertyRef Name="Guid_Kb" />
+          </Key>
+          <Property Type="String" Name="Guid_Kb" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_RQ" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_XQ" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_ZYM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_NR" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_JYM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_SKBJ" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_SJD" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_SJFW" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_ZYLX" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Guid_KBID" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KBNRTable_ALL">
+          <Key>
+            <PropertyRef Name="Guid_Kb" />
+          </Key>
+          <Property Type="String" Name="Guid_Kb" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_RQ" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_XQ" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_ZYM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_NR" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_JYM" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_SKBJ" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_SJD" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_SJFW" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KB_ZYLX" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="KSS" />
+          <Property Type="String" Name="BZ" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Guid_KBFile" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AdminInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="AdminName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdminPwd" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EmpInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="EmpName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpJX" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmpDep" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="EmpImagePath" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NewsInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="NewTitle" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NewContent" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="NewAddDateTime" Nullable="false" Precision="3" />
+          <Property Type="String" Name="NewRead" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProjectInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImagePath" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProjectJX" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TabClassInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="ClassName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ClassStartTime" Precision="3" />
+          <Property Type="DateTime" Name="ClassStopTime" Precision="3" />
+          <Property Type="String" Name="ClassTeacher" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ClassMaster" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TabQuest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="StudentId" Nullable="false" />
+          <Property Type="String" Name="StudentName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Question" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Answer" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="AnswerDateTime" Precision="3" />
+          <Property Type="String" Name="IsTrue" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Meno" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TabStudentInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="StudentName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StudentClassID" Nullable="false" />
+          <Property Type="String" Name="StudentSex" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StudentAddress" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StudentMeno" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WXIdToStudentName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="wxid" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="isTeacher" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TeacherName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StudentName" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="WeChatUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UnionId" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OpenID" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NickName" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Gender" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Province" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Country" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AvatarUrl" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Appid" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Timestamp" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Memo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="counts" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CLKB_DBModelStoreContainer" CdmEntityContainer="CLKB_DBEntities">
+          <EntitySetMapping Name="KBFileTable">
+            <EntityTypeMapping TypeName="CLKB_DBModel.KBFileTable">
+              <MappingFragment StoreEntitySet="KBFileTable">
+                <ScalarProperty Name="IsCY" ColumnName="IsCY" />
+                <ScalarProperty Name="ISCD" ColumnName="ISCD" />
+                <ScalarProperty Name="BZ" ColumnName="BZ" />
+                <ScalarProperty Name="KMName" ColumnName="KMName" />
+                <ScalarProperty Name="Guid_kbfile" ColumnName="Guid_kbfile" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KBNRTable">
+            <EntityTypeMapping TypeName="CLKB_DBModel.KBNRTable">
+              <MappingFragment StoreEntitySet="KBNRTable">
+                <ScalarProperty Name="Guid_KBID" ColumnName="Guid_KBID" />
+                <ScalarProperty Name="Guid_Kb" ColumnName="Guid_Kb" />
+                <ScalarProperty Name="KB_RQ" ColumnName="KB_RQ" />
+                <ScalarProperty Name="KB_XQ" ColumnName="KB_XQ" />
+                <ScalarProperty Name="KB_ZYM" ColumnName="KB_ZYM" />
+                <ScalarProperty Name="KB_NR" ColumnName="KB_NR" />
+                <ScalarProperty Name="KB_JYM" ColumnName="KB_JYM" />
+                <ScalarProperty Name="KB_SKBJ" ColumnName="KB_SKBJ" />
+                <ScalarProperty Name="KB_SJD" ColumnName="KB_SJD" />
+                <ScalarProperty Name="KB_SJFW" ColumnName="KB_SJFW" />
+                <ScalarProperty Name="KB_ZYLX" ColumnName="KB_ZYLX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KBFileTabel_zy">
+            <EntityTypeMapping TypeName="CLKB_DBModel.KBFileTabel_zy">
+              <MappingFragment StoreEntitySet="KBFileTabel_zy">
+                <ScalarProperty Name="Guid_KBID" ColumnName="Guid_KBID" />
+                <ScalarProperty Name="KB_ZYLX" ColumnName="KB_ZYLX" />
+                <ScalarProperty Name="KB_SJFW" ColumnName="KB_SJFW" />
+                <ScalarProperty Name="KB_SJD" ColumnName="KB_SJD" />
+                <ScalarProperty Name="KB_SKBJ" ColumnName="KB_SKBJ" />
+                <ScalarProperty Name="KB_JYM" ColumnName="KB_JYM" />
+                <ScalarProperty Name="KB_NR" ColumnName="KB_NR" />
+                <ScalarProperty Name="KB_ZYM" ColumnName="KB_ZYM" />
+                <ScalarProperty Name="KB_XQ" ColumnName="KB_XQ" />
+                <ScalarProperty Name="KB_RQ" ColumnName="KB_RQ" />
+                <ScalarProperty Name="Guid_Kb" ColumnName="Guid_Kb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KBNRTable_ALL">
+            <EntityTypeMapping TypeName="CLKB_DBModel.KBNRTable_ALL">
+              <MappingFragment StoreEntitySet="KBNRTable_ALL">
+                <ScalarProperty Name="Guid_KBFile" ColumnName="Guid_KBFile" />
+                <ScalarProperty Name="BZ" ColumnName="BZ" />
+                <ScalarProperty Name="KSS" ColumnName="KSS" />
+                <ScalarProperty Name="KB_ZYLX" ColumnName="KB_ZYLX" />
+                <ScalarProperty Name="KB_SJFW" ColumnName="KB_SJFW" />
+                <ScalarProperty Name="KB_SJD" ColumnName="KB_SJD" />
+                <ScalarProperty Name="KB_SKBJ" ColumnName="KB_SKBJ" />
+                <ScalarProperty Name="KB_JYM" ColumnName="KB_JYM" />
+                <ScalarProperty Name="KB_NR" ColumnName="KB_NR" />
+                <ScalarProperty Name="KB_ZYM" ColumnName="KB_ZYM" />
+                <ScalarProperty Name="KB_XQ" ColumnName="KB_XQ" />
+                <ScalarProperty Name="KB_RQ" ColumnName="KB_RQ" />
+                <ScalarProperty Name="Guid_Kb" ColumnName="Guid_Kb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdminInfo">
+            <EntityTypeMapping TypeName="CLKB_DBModel.AdminInfo">
+              <MappingFragment StoreEntitySet="AdminInfo">
+                <ScalarProperty Name="AdminPwd" ColumnName="AdminPwd" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpInfo">
+            <EntityTypeMapping TypeName="CLKB_DBModel.EmpInfo">
+              <MappingFragment StoreEntitySet="EmpInfo">
+                <ScalarProperty Name="EmpImagePath" ColumnName="EmpImagePath" />
+                <ScalarProperty Name="EmpDep" ColumnName="EmpDep" />
+                <ScalarProperty Name="EmpJX" ColumnName="EmpJX" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsInfo">
+            <EntityTypeMapping TypeName="CLKB_DBModel.NewsInfo">
+              <MappingFragment StoreEntitySet="NewsInfo">
+                <ScalarProperty Name="NewRead" ColumnName="NewRead" />
+                <ScalarProperty Name="NewAddDateTime" ColumnName="NewAddDateTime" />
+                <ScalarProperty Name="NewContent" ColumnName="NewContent" />
+                <ScalarProperty Name="NewTitle" ColumnName="NewTitle" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectInfo">
+            <EntityTypeMapping TypeName="CLKB_DBModel.ProjectInfo">
+              <MappingFragment StoreEntitySet="ProjectInfo">
+                <ScalarProperty Name="ProjectJX" ColumnName="ProjectJX" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TabClassInfo">
+            <EntityTypeMapping TypeName="CLKB_DBModel.TabClassInfo">
+              <MappingFragment StoreEntitySet="TabClassInfo">
+                <ScalarProperty Name="ClassMaster" ColumnName="ClassMaster" />
+                <ScalarProperty Name="ClassTeacher" ColumnName="ClassTeacher" />
+                <ScalarProperty Name="ClassStopTime" ColumnName="ClassStopTime" />
+                <ScalarProperty Name="ClassStartTime" ColumnName="ClassStartTime" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TabQuest">
+            <EntityTypeMapping TypeName="CLKB_DBModel.TabQuest">
+              <MappingFragment StoreEntitySet="TabQuest">
+                <ScalarProperty Name="Meno" ColumnName="Meno" />
+                <ScalarProperty Name="IsTrue" ColumnName="IsTrue" />
+                <ScalarProperty Name="AnswerDateTime" ColumnName="AnswerDateTime" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TabStudentInfo">
+            <EntityTypeMapping TypeName="CLKB_DBModel.TabStudentInfo">
+              <MappingFragment StoreEntitySet="TabStudentInfo">
+                <ScalarProperty Name="StudentMeno" ColumnName="StudentMeno" />
+                <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
+                <ScalarProperty Name="StudentSex" ColumnName="StudentSex" />
+                <ScalarProperty Name="StudentClassID" ColumnName="StudentClassID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WXIdToStudentName">
+            <EntityTypeMapping TypeName="CLKB_DBModel.WXIdToStudentName">
+              <MappingFragment StoreEntitySet="WXIdToStudentName">
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="isTeacher" ColumnName="isTeacher" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeChatUsers">
+            <EntityTypeMapping TypeName="CLKB_DBModel.WeChatUsers">
+              <MappingFragment StoreEntitySet="WeChatUsers">
+                <ScalarProperty Name="counts" ColumnName="counts" />
+                <ScalarProperty Name="Memo" ColumnName="Memo" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Appid" ColumnName="Appid" />
+                <ScalarProperty Name="AvatarUrl" ColumnName="AvatarUrl" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="OpenID" ColumnName="OpenID" />
+                <ScalarProperty Name="UnionId" ColumnName="UnionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
